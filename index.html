@@ -3,56 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link ref=""stylesheet href="style.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Oxygen:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
+
+    <div class="container">
     <header>
-        <container>
+        
             <form>
-                <input type ="text" placeholder="Seach for City"/>
+                <input type ="text" placeholder="Seach for City" required/>
                 <input type="submit"/>
             </form>
         </header>
-        <hr />
         <main>
+        <hr />
+        
             <h1>Johannesburg</h1>
 
-            
+
             <p>
-            <div>
+            <div class="forecast">
             Sunday 20:13, Rainy
             <br />
-            humidity(90%), Wind speed (40 km/h)
+            humidity <span class="elements">90%</span>, Wind speed <span class="elements">40 km/h</span>
             </div>
             
 
-            <div>
+            <div class="current-temperature">
                 <span>🌩</span>
                 9°C</div>
             </p>
             
-
+        <br />
 
             <ul>
-                <li>Sunday</li>
-                <li>Monday</li>
-                <li>Tuesday</li>
-                <li>Wednesday</li>
-                <li>Thursday</li>
-                <li>Friday</li>
-                <li>Sartuday</li>
+                <li>Sunday <div>🌤 18°C 27°C</div></li>
+                <li>Monday <div>🌤 18°C 27°C</div></li>
+                <li>Tuesday <div>🌤 18°C 27°C</div></li>
+                <li>Wednesday <div>🌤 18°C 27°C</div></li>
+                <li>Thursday <div>🌤 18°C 27°C</div></li>
+                <li>Friday <div>🌤 18°C 27°C</div></li>
+                <li>Saturday <div>🌤 18°C 27°C</div></li>
             </ul>
         <hr />
 
-        </container>
+       
 
     </main>
     
 
     <footer>
-     Coded by <a href="https://github.com/QhamaniMagasana">Qhamani Magasana</a> on <a href="#">GitHub</a> hosted on <a href ="#">Netlify</a>.
+     Coded by <a href="https://github.com/QhamaniMagasana">Qhamani Magasana</a> on <a href="https://github.com/QhamaniMagasana/Imozulu-App">GitHub</a> hosted on <a href ="https://imozulu-project.netlify.app/">Netlify</a>.
     </footer>
+</div>
+
 
     <script src="index.js"></script>
 </body>
