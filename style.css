@@ -1,21 +1,10 @@
 
 body{
-     font-family: archivo;
+     font-family: "archivo", sans-serif;
      background-image: url("Image1.jpg");
      background-size: cover;
      height: 100vh;
-
 } 
-
-.archivo-<uniquifier> {
-  font-family: "Archivo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-
-}
 
 .container{
       max-width: 800px;
@@ -31,8 +20,12 @@ form{
      text-align: center;
 }
 
-.forecast{
+p{
     color: grey;
+}
+
+.search-city{
+    border: none;
 }
 
 .search-city{
@@ -40,7 +33,6 @@ form{
     margin: 16px;
     padding: 20px 15px;
     background-color: #CDB4FF;
-    color: ;
     width: 75%;
     font-size: 16px;
     border-radius: 10px;
@@ -66,6 +58,7 @@ form{
     right: 35px;
 }
 
+
 .elements{
     color: red;
 }
@@ -81,6 +74,21 @@ a{
      margin-left: 10px;
 }
 
+.weather-temperature{
+     font-weight: 500;
+     font-size: 88px; 
+     margin-left: 10px;
+}
+
+.weather-units{
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+footer{
+
+    text-align: center;
+}
 .weather-temperature{
      font-weight: 500;
      font-size: 88px; 
