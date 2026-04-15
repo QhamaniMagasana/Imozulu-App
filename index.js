@@ -1,10 +1,8 @@
 function changeWeather(response){
-
+    
     let currentWeather = document.querySelector("#current-temperature");
     let temperature = response.data.temperature.current;
     currentWeather.innerHTML = Math.round(temperature);
-
-    
 
     let weatherCondition = document.querySelector("#weather-description");
     weatherCondition.innerHTML = response.data.condition.description;
@@ -24,7 +22,6 @@ function changeWeather(response){
     let date = new Date(response.data.time * 1000);
     dayTime.innerHTML = currentDate(date);
 
-
     let iconElement = document.querySelector("#icon");
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather.icon"/>`;
 
@@ -35,7 +32,6 @@ function currentDate(date){
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     
-
     let minutes = date.getMinutes();
     let hours = date.getHours();
     let day = days[date.getDay()];
@@ -50,7 +46,6 @@ function currentDate(date){
    
     return `${day} ${hours}:${minutes}`;
 }
-
 
 function searchCity(city){
 
@@ -72,34 +67,52 @@ function getForecast(city){
     axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast(){
-    let forecastElement = document.querySelector("#forecast-weather");
-    let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    let forecastHTML = "";
+function formatDay(timestamp){
 
-    days.forEach(function  (day)  {
-        forecastHTML = 
-            forecastHTML + 
-            `<div class="weather-forecast">
-                <div class="forecast-day">${day}</div>
-                <div class="forecast-icon">🌧</div>
-                <div class="forecast-temperature">
-                    <div class="temperature"><strong>17°C</strong></div> 
-                    <div class="temperature">3°C</div>
-                </div>
-            </div>`;
-});
+    let date = new Date(timestamp * 1000);
 
-forecastElement.innerHTML = forecastHTML;
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    return days[date.getDay()];
 }
 
+function displayForecast(response){
+    
+
+    let forecastHTML = "";
+
+    response.data.daily.forEach(function(day, index){
+
+        if(index < 5){
+        forecastHTML =
+          forecastHTML +
+          `<div class="weather-forecast">
+                <div class="forecast-day">${formatDay(day.time)}</div>
+                
+                <img src="${day.condition.icon_url}" class="forecast-icon "/>
+                <div class="forecast-temperature">
+                    <div class="temperature"><strong>${Math.round(day.temperature.maximum)}°C</strong></div> 
+                    <div class="temperature">${Math.round(day.temperature.minimum)}°C</div>
+                </div>
+            </div>`;
+        }
+});
+
+let forecastElement = document.querySelector("#forecast-weather");
+forecastElement.innerHTML = forecastHTML;
+
+
+}
 
 let searchForm=document.querySelector("#form-element");
 searchForm.addEventListener("submit", searchFormSubmit);
 
 searchCity("Johannesburg");
-
-
-
-
-
